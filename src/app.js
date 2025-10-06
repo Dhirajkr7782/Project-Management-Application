@@ -3,6 +3,8 @@ import cors from 'cors';
 import healthCheckRouter from './routes/healthCheck.routes.js';
 import authRouter from "./routes/auth.routes.js";
 import cookieParser from 'cookie-parser';
+import projectRouter from './routes/project.routes.js';
+
 
 
 
@@ -21,13 +23,13 @@ app.use(cors({
     allowedHeaders:["Content-Type","Authorization"]
 }));
 
-
+//important routes
 app.use("/api/v1/healthcheck",healthCheckRouter);
 app.use("/api/v1/auth",authRouter);
-
+app.use("/api/v1/project",projectRouter);
 
 app.get('/',(req,res)=>{
-    res.send("hello world");
+    res.send("Welcome to basecampy");
 })
 
 export default app;
